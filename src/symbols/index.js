@@ -6,8 +6,17 @@ export const GlobalSymbolStyle = createGlobalStyle`
   @font-face { font-family: StarWars; src: url(${font}); }
 `;
 
+export const Base = styled.span`
+  font-family: StarWars;
+  font-size: ${props => 
+    props.size === "large" ? "2.75em" : 
+    props.size === "medium" ? "1.75em" :
+    "1.0em"
+  }
+`;
+
 export const Challenge = styled(
-  ({...props}) => <span title="Challenge" {...props}>{'\u0063'}</span>
+  ({...props}) => <Base title="Challenge" {...props}>{'\u0063'}</Base>
 )`
      font-family: StarWars;
      color: red;
@@ -15,7 +24,7 @@ export const Challenge = styled(
 `;
 
 export const Proficiency = styled(
-  ({...props}) => <span title="Proficiency" {...props}>{'\u0063'}</span>
+  ({...props}) => <Base title="Proficiency" {...props}>{'\u0063'}</Base>
 )`
      font-family: StarWars;
      color: yellow;
@@ -23,7 +32,7 @@ export const Proficiency = styled(
 `;
 
 export const Ability = styled(
-  ({...props}) => <span title="Ability" {...props}>{'\u0064'}</span>
+  ({...props}) => <Base title="Ability" {...props}>{'\u0064'}</Base>
 )`
      font-family: StarWars;
      color: green;
@@ -31,7 +40,7 @@ export const Ability = styled(
 `;
 
 export const Difficulty = styled(
-  ({...props}) => <span title="Difficulty" {...props}>{'\u0064'}</span>
+  ({...props}) => <Base title="Difficulty" {...props}>{'\u0064'}</Base>
 )`
      font-family: StarWars;
      color: purple;
@@ -39,7 +48,7 @@ export const Difficulty = styled(
 `;
 
 export const Setback = styled(
-  ({...props}) => <span title="Setback" {...props}>{'\u0062'}</span>
+  ({...props}) => <Base title="Setback" {...props}>{'\u0062'}</Base>
 )`
      font-family: StarWars;
      color: black;
@@ -47,7 +56,7 @@ export const Setback = styled(
 `;
 
 export const Boost = styled(
-  ({...props}) => <span title="Boost" {...props}>{'\u0062'}</span>
+  ({...props}) => <Base title="Boost" {...props}>{'\u0062'}</Base>
 )`
      font-family: StarWars;
      color: aqua;
@@ -55,7 +64,7 @@ export const Boost = styled(
 `;
 
 export const Force = styled(
-  ({...props}) => <span title="Force" {...props}>{'\u0063'}</span>
+  ({...props}) => <Base title="Force" {...props}>{'\u0063'}</Base>
 )`
      font-family: StarWars;
      color: white;
@@ -63,7 +72,7 @@ export const Force = styled(
 `;
 
 export const Light = styled(
-  ({...props}) => <span title="Light" {...props}>{'\u007A'}</span>
+  ({...props}) => <Base title="Light" {...props}>{'\u007A'}</Base>
 )`
      font-family: StarWars;
      color: white;
@@ -71,33 +80,20 @@ export const Light = styled(
 `;
 
 export const Dark = styled(
-  ({...props}) => <span title="Dark" {...props}>{'\u007A'}</span>
+  ({...props}) => <Base title="Dark" {...props}>{'\u007A'}</Base>
 )`
      font-family: StarWars;
      color: black;
      -webkit-text-stroke: 1px black;
 `;
 
-const Symbol = styled.span`
-  font-family: StarWars;
-`;
-
+const Symbol = Base; 
 export const Success = () => <Symbol title="Success">{'\u0073'}</Symbol>
 export const Advantage = () => <Symbol title="Advantage">{'\u0061'}</Symbol>
 export const Triumph = () => <Symbol title="Triumph">{'\u0078'}</Symbol>
 export const Failure = () => <Symbol title="Failure">{'\u0066'}</Symbol>
 export const Threat = () => <Symbol title="Threat">{'\u0074'}</Symbol>
 export const Despair = () => <Symbol title="Despair">{'\u0079'}</Symbol>
-
-export const LargeSymbol = styled.div`
-  font-size: 3em;
-  padding: 5px;
-  display: inline;
-`;
-export const MediumSymbol = styled.div`
-  font-size: 1.75em;
-  display: inline;
-`;
 
 export const DiceMap = {
   Ability,
@@ -258,3 +254,30 @@ export function resolveroll(names, triumphAddsSuccess) {
   return collector;
 }
 
+export function renderResult(resultCollector, props={}) {
+  const node = Object.keys(ResultMap).map((result, i) => (
+        Array(resultCollector[result]).fill().map((_, j) => {
+          const Component = ResultMap[result];
+          return <Component key={`Result ${i}/${j}`} {...props} />
+        })
+  )).reduce((acc, value) => acc.concat(value), []);
+
+  return (
+    <React.Fragment>
+    { node }
+    </React.Fragment>
+  );
+}
+
+export function renderPool(pool) {
+  return (
+    <React.Fragment>
+    {
+      pool.map((dice, index) => {
+        const Component = DiceMap[dice];
+        return <Component key={`${dice} ${index}`}/>;
+      })
+    }
+    </React.Fragment>
+  );
+}
