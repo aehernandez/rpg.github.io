@@ -1,18 +1,18 @@
 {
   "main.css": "/static/css/main.ae43f1e4.chunk.css",
-  "main.js": "/static/js/main.6fa6f2b7.chunk.js",
-  "main.js.map": "/static/js/main.6fa6f2b7.chunk.js.map",
+  "main.js": "/static/js/main.051cad8f.chunk.js",
+  "main.js.map": "/static/js/main.051cad8f.chunk.js.map",
   "static/css/1.aeac61aa.chunk.css": "/static/css/1.aeac61aa.chunk.css",
   "static/js/1.664c4f56.chunk.js": "/static/js/1.664c4f56.chunk.js",
   "static/js/1.664c4f56.chunk.js.map": "/static/js/1.664c4f56.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/media/index.css": "/static/media/roboto-latin-900italic.bc833e72.woff",
+  "static/media/index.css": "/static/media/roboto-latin-900italic.7b770d6c.woff2",
   "static/media/swrpg.otf": "/static/media/swrpg.a09f3c28.otf",
   "static/media/GitHub-Mark.svg": "/static/media/GitHub-Mark.1bb02710.svg",
-  "static/css/1.aeac61aa.chunk.css.map": "/static/css/1.aeac61aa.chunk.css.map",
   "static/css/main.ae43f1e4.chunk.css.map": "/static/css/main.ae43f1e4.chunk.css.map",
+  "static/css/1.aeac61aa.chunk.css.map": "/static/css/1.aeac61aa.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.c546766ba211f3598508237b86fcfa07.js": "/precache-manifest.c546766ba211f3598508237b86fcfa07.js",
+  "precache-manifest.d833de03ab8d80a0f247874b4ed4be67.js": "/precache-manifest.d833de03ab8d80a0f247874b4ed4be67.js",
   "service-worker.js": "/service-worker.js"
 }

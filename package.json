@@ -5,7 +5,9 @@
   "dependencies": {
     "@material-ui/core": "^3.2.0",
     "@material-ui/icons": "^3.0.1",
+    "chartist": "^0.11.0",
     "react": "^16.5.2",
+    "react-chartist": "^0.13.1",
     "react-dom": "^16.5.2",
     "react-scripts": "2.0.4",
     "styled-components": "^4.0.0-beta.11.3",
